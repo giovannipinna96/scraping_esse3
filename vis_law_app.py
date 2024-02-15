@@ -2,7 +2,7 @@ import streamlit as st
 
 from utils_law_app import read_json
 
-json_data = read_json("sentenze_pulite.json")
+json_data = read_json("clean_sentenze.json")
 
 tot_num_sentences = len(json_data["b_llama-2-13b-law-gpt_train_500_base.json"])  # TODO generalize
 
