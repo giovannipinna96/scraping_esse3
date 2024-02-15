@@ -2,7 +2,7 @@ import streamlit as st
 
 from utils_law_app import read_json
 
-json_data = read_json("sentences_per_model.json")
+json_data = read_json("sentenze_pulite.json")
 
 tot_num_sentences = len(json_data["b_llama-2-13b-law-gpt_train_500_base.json"])  # TODO generalize
 
@@ -49,7 +49,7 @@ st.divider()
 for model in json_data.keys():
     try:
         with st.expander(change_name_dict[model]):
-            st.write(json_data[model][num_sentence]['generated_total'])
+            st.write(json_data[model][num_sentence]['generated_clean'])
             # st.write(model)
     except:
         pass
