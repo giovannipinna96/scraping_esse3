@@ -2,7 +2,8 @@ import streamlit as st
 
 from utils_law_app import read_json
 
-json_data = read_json("clean_sentenze.json")
+json_data = read_json("sentenze_pulite3.json")
+# json_data = read_json("clean_sentenze.json")
 
 tot_num_sentences = len(json_data["b_llama-2-13b-law-gpt_train_500_base.json"])  # TODO generalize
 
@@ -16,11 +17,15 @@ change_name_dict = {
     "c_llama2_7b_summarization_train_500.json": "LLaMA2 7B nostro",
     "b_llamantino13summarization_train_500_evalita.json": "Llamantino 13B trained on EvalITA data (non nostro)",
     "b_llamantino7summarization_train_500_evalita.json": "Llamantino 7B trained on EvalITA data (non nostro)",
-    "b_llama-2-13b-law-gpt_train_500_chat.json": "LLaMA2 13B Chat (non nostro)",
-    "b_llama-2-7b-law-gpt_train_500_chat.json": "LLaMA2 7B Chat (non nostro)",
+    "b_llama-2-13b-law-gpt_train_500_chat_new.json": "LLaMA2 13B Chat (non nostro)",
+    "b_llama-2-7b-law-gpt_train_500_chat_new.json": "LLaMA2 7B Chat (non nostro)",
     "b_llamantino7summarization_train_500_chat.json": "Llamantino 7B Chat (non nostro)",
     "b_llamantino13summarization_train_500_chat.json": "Llamantino 13B Chat (non nostro)",
     "c_moe7summ__train_500.json": "MoE 8x7B (Mixtral of experts) nostro",
+    "c_gemma_7_train_500.json" : "Gemma 7B",
+    "c_gemma_2_train_500.json" : "Gemma 2B",
+    "b_gemma_2b_it_500_base.json" : "Gemma 2B (non nostro)",
+    "b_gemma_7b_it_500_base.json": "Gemma 7B (non nostro)"
 
 }
 
@@ -36,7 +41,7 @@ st.sidebar.title('Sentence Number')
 #    'Select an option',
 #    ('Option 1', 'Option 2', 'Option 3')
 # )
-
+# [1, 2, 10, 11, 14, 21, 25, 26, 29, 32, 34, 35, 38, 40, 49, 51, 57, 61, 71, 77, 83, 87, 105, 108, 119, 116, 136, 140, 144, 155]
 num_sentence = st.sidebar.slider('Number', 0, tot_num_sentences - 1, 1)
 st.divider()
 # GOLD
